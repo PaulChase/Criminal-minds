@@ -14,10 +14,42 @@ const colors = {
 
 const BACKEND_API_URL = "https://criminal-minds-quotes.netlify.app/api";
 
-const characters = ["Gideon", "Morgan", "Hotch", "Reid", "Max Ryan", "Elle", "JJ", "Prentiss", "Rossi", "Garcia"];
+const characters = ["Gideon", "Morgan", "Hotch", "Reid", "Elle", "JJ", "Prentiss", "Rossi", "Garcia"];
+
+const characterImages = {
+	Gideon: {
+		uri: require("../../assets/characters/Gideon.jpeg"),
+	},
+	Morgan: {
+		uri: require("../../assets/characters/Morgan.jpeg"),
+	},
+	Hotch: {
+		uri: require("../../assets/characters/Hotch.jpeg"),
+	},
+	Reid: {
+		uri: require("../../assets/characters/Reid.jpeg"),
+	},
+	Elle: {
+		uri: require("../../assets/characters/Elle.jpeg"),
+	},
+	JJ: {
+		uri: require("../../assets/characters/JJ.jpeg"),
+	},
+	Prentiss: {
+		uri: require("../../assets/characters/Prentiss.jpeg"),
+	},
+	Rossi: {
+		uri: require("../../assets/characters/Rossi.jpeg"),
+	},
+	Garcia: {
+		uri: require("../../assets/characters/Garcia.jpeg"),
+	},
+};
 
 export default {
 	fonts,
 	colors,
 	BACKEND_API_URL,
+	characters,
+	characterImages,
 };

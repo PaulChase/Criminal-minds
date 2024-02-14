@@ -3,6 +3,7 @@ import { Dimensions, ImageBackground, StyleSheet, Text, View } from "react-nativ
 import MyText from "./MyText";
 import { QuoteType } from "../utils/types";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import constants from "../utils/constants";
 
 interface QuoteItemProps {
 	quote: QuoteType;
@@ -12,11 +13,49 @@ interface QuoteItemProps {
 export default function QuoteItem({ quote, index }: QuoteItemProps) {
 	const { height } = Dimensions.get("window");
 
-	const name = "hotchner";
+	let imgSource = null;
+
+	switch (quote.saidBy) {
+		case "Gideon":
+			imgSource = constants.characterImages.Gideon.uri;
+			break;
+
+		case "Hotch":
+			imgSource = constants.characterImages.Hotch.uri;
+			break;
+
+		case "Morgan":
+			imgSource = constants.characterImages.Morgan.uri;
+			break;
+
+		case "Reid":
+			imgSource = constants.characterImages.Reid.uri;
+			break;
+
+		case "Elle":
+			imgSource = constants.characterImages.Elle.uri;
+			break;
+
+		case "JJ":
+			imgSource = constants.characterImages.JJ.uri;
+			break;
+
+		case "Prentiss":
+			imgSource = constants.characterImages.Prentiss.uri;
+			break;
+
+		case "Rossi":
+			imgSource = constants.characterImages.Rossi.uri;
+			break;
+
+		case "Garcia":
+			imgSource = constants.characterImages.Garcia.uri;
+			break;
+	}
 
 	return (
 		<ImageBackground
-			source={require(`../../assets/characters/${name}.jpeg`)} // Replace 'your_image.jpg' with the path to your image
+			source={imgSource}
 			style={{
 				flex: 1,
 				width: "100%",
