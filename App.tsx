@@ -26,6 +26,8 @@ import {
 } from "@expo/vector-icons";
 import constants from "./app/utils/constants";
 import Home from "./app/screens/Home";
+import SeasonsScreen from "./app/screens/SeasonsScreen";
+import SeasonsStack from "./app/navigators/SeasonStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -69,8 +71,8 @@ export default function App() {
 						switch (route.name) {
 							case "Home":
 								return <Ionicons name="home" size={20} color={color} />;
-							case "Reading List":
-								return <FontAwesome5 name="book-open" size={20} color={color} />;
+							case "Seasons":
+								return <MaterialIcons name="live-tv" size={20} color={color} />;
 							case "Categories":
 								return <AntDesign name="tags" size={20} color={color} />;
 							case "Profile":
@@ -102,7 +104,7 @@ export default function App() {
 				})}
 			>
 				<Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
-				<Tab.Screen name="Reading List" component={Home} options={{ title: "Reading List" }} />
+				<Tab.Screen name="Seasons" component={SeasonsStack} options={{ headerShown: false }} />
 				<Tab.Screen name="Profile" component={Home} options={{ headerShown: false }} />
 			</Tab.Navigator>
 		</NavigationContainer>

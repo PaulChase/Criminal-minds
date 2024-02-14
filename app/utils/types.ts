@@ -5,3 +5,15 @@ export interface QuoteType {
 	season: string;
 	episode: string;
 }
+
+export interface SeasonType {
+	season: string;
+	quotes: number;
+}
+
+export interface QuoteEpisodeType {
+	text: string;
+	author: string;
+	saidBy: string;
+	episode: string;
+}
