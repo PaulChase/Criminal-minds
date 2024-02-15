@@ -28,6 +28,7 @@ import constants from "./app/utils/constants";
 import Home from "./app/screens/Home";
 import SeasonsScreen from "./app/screens/SeasonsScreen";
 import SeasonsStack from "./app/navigators/SeasonStack";
+import CharactersStack from "./app/navigators/CharactersStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -75,8 +76,8 @@ export default function App() {
 								return <MaterialIcons name="live-tv" size={20} color={color} />;
 							case "Categories":
 								return <AntDesign name="tags" size={20} color={color} />;
-							case "Profile":
-								return <FontAwesome name="user-circle" size={20} color={color} />;
+							case "Characters":
+								return <FontAwesome name="users" size={20} color={color} />;
 						}
 					},
 					tabBarActiveTintColor: "#c76c05",
@@ -105,7 +106,7 @@ export default function App() {
 			>
 				<Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
 				<Tab.Screen name="Seasons" component={SeasonsStack} options={{ headerShown: false }} />
-				<Tab.Screen name="Profile" component={Home} options={{ headerShown: false }} />
+				<Tab.Screen name="Characters" component={CharactersStack} options={{ headerShown: false }} />
 			</Tab.Navigator>
 		</NavigationContainer>
 	);

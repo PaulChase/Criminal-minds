@@ -19,30 +19,39 @@ const characters = ["Gideon", "Morgan", "Hotch", "Reid", "Elle", "JJ", "Prentiss
 const characterImages = {
 	Gideon: {
 		uri: require("../../assets/characters/Gideon.jpeg"),
+		profilePic: require("../../assets/characters/pofile_pics/Gideon.jpeg"),
 	},
 	Morgan: {
 		uri: require("../../assets/characters/Morgan.jpeg"),
+		profilePic: require("../../assets/characters/pofile_pics/Morgan.jpeg"),
 	},
 	Hotch: {
 		uri: require("../../assets/characters/Hotch.jpeg"),
+		profilePic: require("../../assets/characters/pofile_pics/Hotch.jpeg"),
 	},
 	Reid: {
 		uri: require("../../assets/characters/Reid.jpeg"),
+		profilePic: require("../../assets/characters/pofile_pics/Reid.jpeg"),
 	},
 	Elle: {
 		uri: require("../../assets/characters/Elle.jpeg"),
+		profilePic: require("../../assets/characters/pofile_pics/Elle.jpeg"),
 	},
 	JJ: {
 		uri: require("../../assets/characters/JJ.jpeg"),
+		profilePic: require("../../assets/characters/pofile_pics/JJ.jpeg"),
 	},
 	Prentiss: {
 		uri: require("../../assets/characters/Prentiss.jpeg"),
+		profilePic: require("../../assets/characters/pofile_pics/Prentiss.jpeg"),
 	},
 	Rossi: {
 		uri: require("../../assets/characters/Rossi.jpeg"),
+		profilePic: require("../../assets/characters/pofile_pics/Rossi.jpeg"),
 	},
 	Garcia: {
 		uri: require("../../assets/characters/Garcia.jpeg"),
+		profilePic: require("../../assets/characters/pofile_pics/Garcia.jpeg"),
 	},
 };
 
