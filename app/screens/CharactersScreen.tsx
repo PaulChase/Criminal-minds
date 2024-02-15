@@ -43,12 +43,6 @@ function CharactersScreen({ navigation, route }) {
 
 	return (
 		<MySafeAreaView className="">
-			{/* <ScrollView className=" p-4 space-y-4 pb-20 ">
-				{characters.map((character, index) => (
-					<CharacterListItem key={index} character={character} />
-				))}
-			</ScrollView> */}
-
 			<View className=" flex-1 p-4">
 				<FlatList
 					data={characters}

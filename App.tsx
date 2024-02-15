@@ -72,11 +72,10 @@ export default function App() {
 						switch (route.name) {
 							case "Home":
 								return <Ionicons name="home" size={20} color={color} />;
-							case "Seasons":
+							case "SeasonsStack":
 								return <MaterialIcons name="live-tv" size={20} color={color} />;
-							case "Categories":
-								return <AntDesign name="tags" size={20} color={color} />;
-							case "Characters":
+
+							case "CharactersStack":
 								return <FontAwesome name="users" size={20} color={color} />;
 						}
 					},
@@ -105,8 +104,12 @@ export default function App() {
 				})}
 			>
 				<Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
-				<Tab.Screen name="Seasons" component={SeasonsStack} options={{ headerShown: false }} />
-				<Tab.Screen name="Characters" component={CharactersStack} options={{ headerShown: false }} />
+				<Tab.Screen name="SeasonsStack" component={SeasonsStack} options={{ headerShown: false, title: "Seasons" }} />
+				<Tab.Screen
+					name="CharactersStack"
+					component={CharactersStack}
+					options={{ headerShown: false, title: "Characters" }}
+				/>
 			</Tab.Navigator>
 		</NavigationContainer>
 	);

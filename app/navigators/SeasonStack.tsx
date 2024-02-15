@@ -14,7 +14,6 @@ export default function SeasonsStack() {
 
 	return (
 		<SeasonsScreensStack.Navigator
-			initialRouteName="Home"
 			screenOptions={() => ({
 				headerStyle: {
 					backgroundColor: constants.colors.darkComponentBg,
@@ -26,8 +25,12 @@ export default function SeasonsStack() {
 				headerTintColor: "white",
 			})}
 		>
-			<SeasonsScreensStack.Screen name="Season" component={SeasonsScreen} />
-			<SeasonsScreensStack.Screen name="Episodes" component={EpisodesScreen} />
+			<SeasonsScreensStack.Screen name="Seasons" component={SeasonsScreen} />
+			<SeasonsScreensStack.Screen
+				name="Episodes"
+				component={EpisodesScreen}
+				options={({ route }) => ({ title: route.params.season + " Quotes" })}
+			/>
 		</SeasonsScreensStack.Navigator>
 	);
 }

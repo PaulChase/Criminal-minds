@@ -10,15 +10,15 @@ import { QuoteEpisodeType, SeasonType } from "../utils/types";
 import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 import Accordion from "../components/Accordion";
 
-function EpisodesScreen({ route }) {
+function CharacterQuotesScreen({ route }) {
 	const [quotes, setQuotes] = useState<QuoteEpisodeType[]>([]);
 	const [loading, setLoading] = useState(true);
 
-	const { season } = route.params;
+	const { character } = route.params;
 
 	const fetchQuotes = async () => {
 		try {
-			const response = await axiosInstance.get("/seasons/" + season);
+			const response = await axiosInstance.get("/characters/" + character);
 			setQuotes(response.data.quotes);
 		} catch (error) {
 			displayError(error);
@@ -49,9 +49,7 @@ function EpisodesScreen({ route }) {
 								content={
 									<View>
 										<MyText className="text-gray-300 mt-2">- {quote.author}</MyText>
-										<MyText className="text-gray-300 mt-2 font-medium">
-											<FontAwesome5 name="user" size={14} color="white" /> SaidBy: {quote.saidBy}
-										</MyText>
+
 										<MyText className="text-gray-300 mt-2 font-medium">
 											<MaterialCommunityIcons name="movie-play" size={14} color="white" /> Episode: {quote.episode}
 										</MyText>
@@ -66,4 +64,4 @@ function EpisodesScreen({ route }) {
 	);
 }
 
-export default EpisodesScreen;
+export default CharacterQuotesScreen;
