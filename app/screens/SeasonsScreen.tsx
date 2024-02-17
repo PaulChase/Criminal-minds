@@ -44,7 +44,7 @@ function SeasonsScreen({ navigation, route }) {
 	}
 	return (
 		<MySafeAreaView>
-			<ScrollView className=" p-4 space-y-4">
+			<ScrollView className=" px-4 py-8 space-y-4">
 				{Seasons.map((season, index) => (
 					<TouchableOpacity key={index} onPress={() => goToEpisodeScreen(season.season)}>
 						<MyView className="p-4 rounded-lg flex flex-row items-center justify-between">

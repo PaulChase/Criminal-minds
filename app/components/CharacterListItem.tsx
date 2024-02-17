@@ -57,13 +57,13 @@ export default function CharacterListItem({ character }: { character: string }) 
 
 	return (
 		<TouchableOpacity onPress={() => goToEpisodeScreen(character)} className="   flex-1">
-			<MyView className="p-6 rounded-lg flex gap-4 items-center justify-between">
+			<MyView className="p-6 rounded-md flex gap-4 items-center justify-between">
 				<Image
 					source={imgSource}
 					style={{
 						width: 100,
 						height: 100,
-						borderRadius: "100%",
+						borderRadius: 100,
 					}}
 				/>
 				<View>

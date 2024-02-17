@@ -43,7 +43,7 @@ function CharactersScreen({ navigation, route }) {
 
 	return (
 		<MySafeAreaView className="">
-			<View className=" flex-1 p-4">
+			<View className=" flex-1  px-4 py-8">
 				<FlatList
 					data={characters}
 					renderItem={renderItem}

@@ -64,7 +64,7 @@ export default function QuoteItem({ quote, index }: QuoteItemProps) {
 			}}
 			resizeMode="cover"
 		>
-			<View style={styles.overlay} className=" justify-center p-4">
+			<View style={styles.overlay} className=" justify-center p-4 ">
 				<Text className=" text-white text-2xl font-bold italic">" {quote.text} "</Text>
 				<Text className=" text-white text-lg font-semibold  mt-2"> - {quote.author}</Text>
 

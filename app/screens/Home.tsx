@@ -91,7 +91,7 @@ export default function Home() {
 				bounces={true}
 				windowSize={1}
 				pagingEnabled={true}
-				// snapToAlignment={"end"}
+				snapToAlignment={"end"}
 				// snapToInterval={height - 60}
 				decelerationRate={"fast"}
 				showsHorizontalScrollIndicator={false}
