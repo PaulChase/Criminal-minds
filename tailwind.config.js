@@ -7,6 +7,8 @@ module.exports = {
 			"text-regular": ["text-regular"],
 			"text-medium": ["text-medium"],
 			"text-semibold": ["text-semibold"],
+			"text-bold": ["text-bold"],
+			"text-black": ["text-black"],
 			"heading-bold": ["heading-bold"],
 			"heading-black": ["heading-black"],
 		},

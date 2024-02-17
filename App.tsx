@@ -37,6 +37,8 @@ export default function App() {
 		"text-regular": require("./assets/fonts/Poppins-Regular.ttf"),
 		"text-semibold": require("./assets/fonts/Poppins-SemiBold.ttf"),
 		"text-medium": require("./assets/fonts/Poppins-Medium.ttf"),
+		"text-bold": require("./assets/fonts/Poppins-Bold.ttf"),
+		"text-black": require("./assets/fonts/Poppins-Black.ttf"),
 		"heading-bold": require("./assets/fonts/Lato-Bold.ttf"),
 		"heading-black": require("./assets/fonts/Lato-Black.ttf"),
 	});

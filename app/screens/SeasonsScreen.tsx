@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ActivityIndicator, ScrollView, Text, View } from "react-native";
 import MySafeAreaView from "../components/MySafeAreaView";
 import MyText from "../components/MyText";
@@ -9,10 +9,12 @@ import { displayError } from "../utils/helpers";
 import { SeasonType } from "../utils/types";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import PrimaryButton from "../components/PrimaryButton";
 
 function SeasonsScreen({ navigation, route }) {
 	const [Seasons, setSeasons] = useState<SeasonType[]>([]);
 	const [loading, setLoading] = useState(true);
+	const [permissionStatus, setPermissionStatus] = useState<string | null>(null);
 
 	const fetchQuotes = async () => {
 		try {

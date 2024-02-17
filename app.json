@@ -13,7 +13,10 @@
 		},
 		"assetBundlePatterns": ["**/*"],
 		"ios": {
-			"supportsTablet": true
+			"supportsTablet": true,
+			"infoPlist": {
+				"NSPhotoLibraryAddUsageDescription": "We need access to your photo library to save images."
+			}
 		},
 		"android": {
 			"adaptiveIcon": {
@@ -21,7 +24,8 @@
 				"backgroundColor": "#000000"
 			},
 			"package": "com.paulstack.criminal_minds",
-			"versionCode": 2
+			"versionCode": 2,
+			"permissions": ["CAMERA_ROLL"]
 		},
 		"web": {
 			"favicon": "./assets/favicon.png"
