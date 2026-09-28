@@ -21,7 +21,7 @@ export function CharactersScreen({ navigation }: Props) {
 					<Pressable
 						onPress={() => navigation.navigate("Character", { characterId: item.id })}
 						accessibilityRole="button"
-						accessibilityLabel={`${item.fullName}, ${item.quoteCount} quotes`}
+						accessibilityLabel={`${item.fullName}, ${item.quoteCount} ${item.quoteCount === 1 ? "quote" : "quotes"}`}
 						className="flex-1 items-center gap-3 rounded-2xl bg-surface px-3 py-5 active:opacity-80"
 					>
 						<CharacterAvatar id={item.id} size={88} style={{ borderWidth: 2, borderColor: "#d97706" }} />

@@ -51,7 +51,7 @@ const AUTHOR_OVERRIDES: Record<string, { author: string; note?: string }> = {
 const sentence = (s: string) => {
 	const trimmed = s.trim().replace(/^Note:\s*/i, "");
 	const capitalized = trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
-	return /[.!?]$/.test(capitalized) ? capitalized : `${capitalized}.`;
+	return /[.!?]["”’]?$/.test(capitalized) ? capitalized : `${capitalized}.`;
 };
 
 export function parseAuthor(raw: string): { author: string; note?: string } {

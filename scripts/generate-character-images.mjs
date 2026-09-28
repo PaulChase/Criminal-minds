@@ -10,9 +10,14 @@
  * them in drawable-mdpi, and Android upscales them by the screen density (~2.6×) when decoding. That
  * wastes memory, and it pushes large images past the GPU texture limit, so they render zoomed in.
  *
+ * A character without photos yet can use generated placeholder art (initials on a dark background):
+ *   npm run images -- --placeholder Seaver "Ashley Seaver"
+ * Dropping a real avatar/background into the folder later replaces the matching placeholder.
+ *
  * Usage:
  *   npm run images                 optimize new/oversized images, then write the manifest
  *   npm run images -- --migrate-legacy   move the old flat layout into per-character folders first
+ *   npm run images -- --placeholder <Id> "<Full Name>"   create placeholder art for a character
  *   npm run images:check           exit 1 if any image is unoptimized or the manifest is stale
  *
  * Originals that get replaced are moved to .image-originals/ (gitignored).
@@ -32,10 +37,16 @@ const AVATAR = { size: 320, quality: 82, maxBytes: 80 * 1024 };
 const MIN_SHARP_BG_WIDTH = 900;
 const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp"]);
 const SCALE_SUFFIX = "@3x";
+const PLACEHOLDER_AVATAR = "placeholder-avatar";
+const PLACEHOLDER_BG = "placeholder-background";
+const FONT_FILE = path.join(ROOT, "assets/fonts/Lato-Black.ttf");
 
-const args = new Set(process.argv.slice(2));
+const argv = process.argv.slice(2);
+const args = new Set(argv);
 const CHECK = args.has("--check");
 const MIGRATE = args.has("--migrate-legacy");
+const placeholderAt = argv.indexOf("--placeholder");
+const PLACEHOLDER = placeholderAt === -1 ? null : { id: argv[placeholderAt + 1], fullName: argv[placeholderAt + 2] };
 
 const problems = [];
 const warnings = [];
@@ -55,6 +66,7 @@ const rel = (p) => path.relative(ROOT, p);
 /** File name without extension or Metro scale suffix: "reid-1@3x.jpg" → "reid-1". */
 const baseName = (file) => path.basename(file, path.extname(file)).replace(/@\d+(\.\d+)?x$/, "");
 const outputName = (base) => `${base}${SCALE_SUFFIX}.jpg`;
+const isPlaceholder = (file) => baseName(file).startsWith("placeholder-");
 
 function listImages(dir) {
 	return fs
@@ -171,6 +183,54 @@ async function processAvatar(file) {
 	return out;
 }
 
+/** Renders `text` in Lato Black and returns it with its size, for centering. */
+async function renderText(text, sizePx, color, letterSpacing = 0) {
+	const markup = `<span foreground="${color}" letter_spacing="${letterSpacing * 1024}">${text}</span>`;
+	const { data, info } = await sharp({ text: { text: markup, font: `Lato Black ${sizePx}`, fontfile: FONT_FILE, rgba: true, dpi: 72 } })
+		.png()
+		.toBuffer({ resolveWithObject: true });
+	return { input: data, width: info.width, height: info.height };
+}
+
+const centered = (img, canvasWidth, top) => ({ input: img.input, left: Math.round((canvasWidth - img.width) / 2), top: Math.round(top - img.height / 2) });
+
+/** Writes initials-on-dark placeholder art so a character works before real photos exist. */
+async function writePlaceholders(id, fullName) {
+	if (!id || !fullName) {
+		console.error('Usage: npm run images -- --placeholder <Id> "<Full Name>"');
+		process.exit(1);
+	}
+	const dir = path.join(CHARACTERS_DIR, id);
+	fs.mkdirSync(dir, { recursive: true });
+	const words = fullName.replace(/^(Dr|Col|Mr|Mrs|Ms)\.\s+/i, "").split(/\s+/);
+	const initials = (words.length > 1 ? words[0][0] + words[words.length - 1][0] : words[0].slice(0, 2)).toUpperCase();
+
+	const bgSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${BG.width}" height="${BG.height}">
+		<defs>
+			<linearGradient id="base" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f1f1f"/><stop offset="1" stop-color="#0b0b0b"/></linearGradient>
+			<radialGradient id="glow" cx="0.5" cy="0.3" r="0.6"><stop offset="0" stop-color="#d97706" stop-opacity="0.28"/><stop offset="1" stop-color="#d97706" stop-opacity="0"/></radialGradient>
+		</defs>
+		<rect width="100%" height="100%" fill="url(#base)"/><rect width="100%" height="100%" fill="url(#glow)"/>
+	</svg>`;
+	const bigInitials = await renderText(initials, 460, "#4a3413");
+	const name = await renderText(fullName.toUpperCase(), 44, "#6b6b6b", 8);
+	await sharp(Buffer.from(bgSvg))
+		.composite([centered(bigInitials, BG.width, BG.height * 0.3), centered(name, BG.width, BG.height * 0.3 + bigInitials.height / 2 + 80)])
+		.jpeg({ quality: BG.quality, mozjpeg: true })
+		.toFile(path.join(dir, outputName(PLACEHOLDER_BG)));
+
+	const avatarSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${AVATAR.size}" height="${AVATAR.size}">
+		<defs><radialGradient id="g" cx="0.5" cy="0.35" r="0.75"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#1a1a1a"/></radialGradient></defs>
+		<rect width="100%" height="100%" fill="url(#g)"/>
+	</svg>`;
+	const avatarInitials = await renderText(initials, 128, "#d97706");
+	await sharp(Buffer.from(avatarSvg))
+		.composite([centered(avatarInitials, AVATAR.size, AVATAR.size / 2)])
+		.jpeg({ quality: AVATAR.quality, mozjpeg: true })
+		.toFile(path.join(dir, outputName(PLACEHOLDER_AVATAR)));
+	console.log(`created placeholder art for ${id} (${initials})`);
+}
+
 function renderManifest(entries) {
 	const requirePath = (file) => {
 		const unscaled = path.join(path.dirname(file), `${baseName(file)}${path.extname(file)}`);
@@ -196,6 +256,7 @@ function renderManifest(entries) {
 
 async function main() {
 	if (MIGRATE && !CHECK) migrateLegacy();
+	if (PLACEHOLDER && !CHECK) await writePlaceholders(PLACEHOLDER.id, PLACEHOLDER.fullName);
 
 	const ids = fs
 		.readdirSync(CHARACTERS_DIR, { withFileTypes: true })
@@ -211,20 +272,39 @@ async function main() {
 	for (const id of ids) {
 		const dir = path.join(CHARACTERS_DIR, id);
 		const files = listImages(dir);
-		const avatarFile = files.find((f) => baseName(f).toLowerCase() === "avatar");
-		const bgFiles = files.filter((f) => f !== avatarFile);
+		const realAvatar = files.find((f) => baseName(f).toLowerCase() === "avatar");
+		const realBackgrounds = files.filter((f) => f !== realAvatar && !isPlaceholder(f));
+		const placeholderAvatar = files.find((f) => baseName(f) === PLACEHOLDER_AVATAR);
+		const placeholderBackground = files.find((f) => baseName(f) === PLACEHOLDER_BG);
 		if (!CHECK) console.log(id);
+
+		// Real images replace placeholder art.
+		for (const [real, placeholder] of [
+			[realAvatar, placeholderAvatar],
+			[realBackgrounds.length > 0, placeholderBackground],
+		]) {
+			if (!real || !placeholder) continue;
+			if (CHECK) problems.push(`${id}/${placeholder} is no longer needed — run \`npm run images\` to remove it.`);
+			else fs.rmSync(path.join(dir, placeholder));
+		}
+		const avatarFile = realAvatar ?? placeholderAvatar;
+		const bgFiles = realBackgrounds.length ? realBackgrounds : placeholderBackground ? [placeholderBackground] : [];
+		if (!realAvatar || !realBackgrounds.length) {
+			if (avatarFile && bgFiles.length) warnings.push(`${id} is using placeholder art — add real photos to assets/characters/${id}/.`);
+		}
 
 		if (!avatarFile) problems.push(`${id}: missing avatar.jpg (the profile picture).`);
 		const scaled = files.filter((f) => /@\d+(\.\d+)?x\./.test(f) && !f.includes(SCALE_SUFFIX));
 		if (scaled.length) problems.push(`${id}: ${scaled.join(", ")} — remove the @Nx suffix; the script adds ${SCALE_SUFFIX} itself.`);
 		if (bgFiles.length === 0) problems.push(`${id}: no background images.`);
-		else if (bgFiles.length < 2) warnings.push(`${id} has only 1 background — add more so the feed can rotate.`);
+		else if (realBackgrounds.length === 1) warnings.push(`${id} has only 1 background — add more so the feed can rotate.`);
 
+		// Placeholders are generated already optimized, so they skip processing.
+		const prepare = (file, fn) => (isPlaceholder(file) ? path.join(dir, file) : fn(path.join(dir, file)));
 		const taken = new Set(bgFiles.map((f) => f.toLowerCase()));
 		const backgrounds = [];
-		for (const f of bgFiles) backgrounds.push(await processBackground(id, path.join(dir, f), taken));
-		const avatar = avatarFile ? await processAvatar(path.join(dir, avatarFile)) : null;
+		for (const f of bgFiles) backgrounds.push(await prepare(f, (file) => processBackground(id, file, taken)));
+		const avatar = avatarFile ? await prepare(avatarFile, processAvatar) : null;
 		if (avatar && backgrounds.length) entries.push({ id, avatar, backgrounds: backgrounds.sort(naturalSort) });
 	}
 

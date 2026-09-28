@@ -1,5 +1,6 @@
-// Copied verbatim from the criminal-minds-quotes-api repo (src/app/data.js).
-// Keep edits here to data fixes only — parsing and cleanup happen in ./parse.ts.
+// Seasons 1–4 are copied verbatim from the criminal-minds-quotes-api repo (src/app/data.js); seasons 5–7
+// were added from a later quote list. Keep edits here to data fixes only — parsing and cleanup happen in ./parse.ts.
+// An author may end in "(note)"; parse.ts moves that into the quote's authorNote.
 import type { RawQuoteData } from "./types";
 
 export const rawQuotes = {
@@ -999,6 +1000,735 @@ export const rawQuotes = {
 				author:
 					"Aaron Hotchner (Note: This is the first time that a quote used in the beginning or end of the episode had one of the main characters as its author.)",
 				saidBy: "Hotch",
+			},
+		],
+	},
+	"Season 5": {
+		'5×01 "Nameless, Faceless"': [
+			{
+				text: "A weak man has doubts before a decision. A strong man has them afterwards.",
+				author: "Karl Kraus",
+				saidBy: "Rossi",
+			},
+		],
+		'5×02 "Haunted"': [
+			{
+				text: "One need not be a chamber to be haunted, one need not to be a house. The brain has corridors surpassing material place.",
+				author: "Emily Dickinson",
+				saidBy: "Hotch",
+			},
+			{
+				text: "There is no witness so dreadful, no accuser so terrible as the conscience that dwells in the heart of every man.",
+				author: "Polybius",
+				saidBy: "Hotch",
+			},
+		],
+		'5×03 "Reckoner"': [
+			{
+				text: "Justice without force is powerless; force without justice is tyrannical.",
+				author: "Blaise Pascal",
+				saidBy: "Rossi",
+			},
+			{
+				text: "I have always found that mercy bears richer fruits than strict justice.",
+				author: "Abraham Lincoln",
+				saidBy: "Rossi",
+			},
+		],
+		'5×04 "Hopeless"': [
+			{
+				text: "There is no lasting hope in violence, only temporary relief from hopelessness.",
+				author: "Kingman Brewster, Jr.",
+				saidBy: "Morgan",
+			},
+			{
+				text: "These violent delights have violent ends.",
+				author: "William Shakespeare",
+				saidBy: "Morgan",
+			},
+		],
+		'5×05 "Cradle to Grave"': [
+			{
+				text: "You don’t really understand human nature unless you know why a child on a merry-go-round will wave at his parents every time around and why his parents will always wave back.",
+				author: "William D. Tammeus",
+				saidBy: "JJ",
+			},
+		],
+		'5×06 "The Eyes Have It"': [
+			{
+				text: "And if thy right eye offend thee, pluck it out and cast it from thee.",
+				author: "Matthew 5:29",
+				saidBy: "Morgan",
+			},
+			{
+				text: "Dwell in peace in the home of your own being and the messenger of death will not be able to touch you.",
+				author: "Guru Nanak",
+				saidBy: "Morgan",
+			},
+		],
+		'5×07 "The Performer"': [
+			{
+				text: "In all the darkest pages of the malign supernatural, there is no more terrible tradition than that of the vampire – a pariah even among demons.",
+				author: "Montague Summers",
+				saidBy: "Reid",
+			},
+			{
+				text: "Better to write for yourself and have no public than to write for the public and have no self.",
+				author: "Cyril Connolly",
+				saidBy: "Prentiss",
+			},
+		],
+		'5×08 "Outfoxed"': [
+			{
+				text: "Man usually avoids attributing cleverness to somebody else unless it’s an enemy.",
+				author: "Albert Einstein",
+				saidBy: "Morgan",
+			},
+		],
+		'5×09 "100"': [
+			{
+				text: "He who fights with monsters might take care lest he thereby become a monster. And if you gaze for long into an abyss, the abyss gazes also into you.",
+				author: "Friedrich Nietzsche",
+				saidBy: "Hotch",
+			},
+			{
+				text: "So much of what is best in us is bound up in our love of family that it remains the measure of our stability because it measures our sense of loyalty.",
+				author: "Haniel Long",
+				saidBy: "Hotch",
+			},
+		],
+		'5×10 "The Slave of Duty"': [
+			{
+				text: "Where we love is home, home that our feet may leave, but not our hearts.",
+				author: "Oliver Wendell Holmes",
+				saidBy: "Hotch",
+			},
+			{
+				text: "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+				author: "Ralph Waldo Emerson",
+				saidBy: "Hotch",
+			},
+		],
+		'5×11 "Retaliation"': [
+			{
+				text: "Men are more ready to repay an injury than a benefit, because gratitude is a burden and revenge a pleasure.",
+				author: "Tacitus",
+				saidBy: "Prentiss",
+			},
+			{
+				text: "There is a sacredness in tears. They are not the mark of weakness but of power. They are messengers of overwhelming grief and of unspeakable love.",
+				author: "Washington Irving",
+				saidBy: "Prentiss",
+			},
+		],
+		'5×12 "The Uncanny Valley"': [
+			{
+				text: "Anything you cannot relinquish when it has outlived its usefulness possesses you, and in this materialistic age a great many of us are possessed by our possessions.",
+				author: "Peace Pilgrim",
+				saidBy: "Reid",
+			},
+			{
+				text: "In life, unlike chess, the game continues after checkmate.",
+				author: "Isaac Asimov",
+				saidBy: "Reid",
+			},
+		],
+		'5×13 "Risky Business"': [
+			{
+				text: "Life is a game – play it … Life is too precious, do not destroy it.",
+				author: "Mother Teresa",
+				saidBy: "JJ",
+			},
+			{
+				text: "Experience is a brutal teacher, but you learn. My God, do you learn.",
+				author: "C.S. Lewis",
+				saidBy: "JJ",
+			},
+		],
+		'5×14 "Parasite"': [
+			{
+				text: "Oh, what a tangled web we weave when first we practice to deceive.",
+				author: "Sir Walter Scott",
+				saidBy: "Prentiss",
+			},
+			{
+				text: "If I am what I have, and if I lose what I have, who, then, am I?",
+				author: "Erich Fromm",
+				saidBy: "Prentiss",
+			},
+		],
+		'5×15 "Public Enemy"': [
+			{
+				text: "When a father gives to his son, both laugh; when his son gives to his father, both cry.",
+				author: "William Shakespeare",
+				saidBy: "Rossi",
+			},
+			{
+				text: "Show me a hero, and I will write you a tragedy.",
+				author: "F. Scott Fitzgerald",
+				saidBy: "Rossi",
+			},
+		],
+		'5×16 "Mosley Lane"': [
+			{
+				text: "Hope is the thing with feathers, that perches in the soul, and sings the tune without words, and never stops at all.",
+				author: "Emily Dickinson",
+				saidBy: "JJ",
+			},
+			{
+				text: "Hope is the worst of evils, for it prolongs the torments of man.",
+				author: "Friedrich Nietzsche",
+				saidBy: "JJ",
+			},
+		],
+		'5×17 "Solitary Man"': [
+			{
+				text: "Family is a haven in a heartless world.",
+				author: "Christopher Lasch",
+				saidBy: "Morgan",
+			},
+			{
+				text: "We’re all of us sentenced to solitary confinement inside our own skins, for life.",
+				author: "Tennessee Williams",
+				saidBy: "Prentiss",
+			},
+		],
+		'5×18 "The Fight"': [
+			{
+				text: "I have found the paradox, that if you love until it hurts, there can be no more hurt, only more love.",
+				author: "Mother Teresa",
+				saidBy: "Hotch",
+			},
+		],
+		'5×19 "Rite of Passage"': [
+			{
+				text: "Many persons have the wrong idea of what constitutes true happiness. It is not attained through self-gratification, but through fidelity to a worthy purpose.",
+				author: "Helen Keller",
+				saidBy: "Hotch",
+			},
+			{
+				text: "A lion’s work hours are only when he’s hungry. Once he’s satisfied, the predator and prey lie peacefully together.",
+				author: "Chuck Jones",
+				saidBy: "Prentiss",
+			},
+		],
+		'5×20 "…A Thousand Words"': [
+			{
+				text: "A sincere artist tries to create something which is, in itself, a living thing.",
+				author: "William Dobell",
+				saidBy: "Rossi",
+			},
+			{
+				text: "I have seen children successfully surmount the effects of an evil inheritance. That is due to purity being an inherent attribute of the soul.",
+				author: "Mahatma Gandhi",
+				saidBy: "Hotch",
+			},
+		],
+		'5×21 "Exit Wounds"': [
+			{
+				text: "Nature, in her most dazzling aspects or stupendous parts, is but the background and theater of the tragedy of man.",
+				author: "John Morley",
+				saidBy: "Garcia",
+			},
+			{
+				text: "Nothing is so strong as gentleness, and nothing is so gentle as real strength.",
+				author: "Ralph W. Sockman",
+				saidBy: "Garcia",
+			},
+		],
+		'5×22 "The Internet Is Forever"': [
+			{
+				text: "The single biggest problem with communication is the illusion that it has taken place.",
+				author: "George Bernard Shaw",
+				saidBy: "Hotch",
+			},
+			{
+				text: "The Internet is the first thing that humanity has built that humanity doesn’t understand, the largest experiment in anarchy that we have ever had.",
+				author: "Eric Schmidt",
+				saidBy: "Rossi",
+			},
+		],
+		'5×23 "Our Darkest Hour"': [
+			{
+				text: "And out of the darkness came the hands that reach thro’ nature, moulding men.",
+				author: "Alfred Lord Tennyson",
+				saidBy: "Morgan",
+			},
+		],
+	},
+	"Season 6": {
+		'6×01 "The Longest Night"': [
+			{
+				text: "A family is a place where minds come in contact with one another. If these minds love one another, the home will be as beautiful as a flower garden. But if these minds get out of harmony with one other it is like a storm that plays havoc with the garden.",
+				author: "The Buddha",
+				saidBy: "JJ",
+			},
+		],
+		'6×02 "JJ"': [
+			{
+				text: "A tragedy need not have blood and death; it’s enough that it all be filled with that majestic sadness that is the pleasure of tragedy.",
+				author: "Jean Racine",
+				saidBy: "JJ",
+			},
+		],
+		'6×03 "Remembrance of Things Past"': [
+			{
+				text: "Remembrance of things past is not necessarily the remembrance of things as they were.",
+				author: "Marcel Proust",
+				saidBy: "Rossi",
+			},
+			{
+				text: "When I was younger, I could remember anything, whether it had happened or not. But my faculties are decaying now, and soon I shall be so that I cannot remember any but the things that never happened. It is sad to go to pieces like this, but we all have to do it.",
+				author: "Mark Twain",
+				saidBy: "Rossi",
+			},
+		],
+		'6×04 "Compromising Positions"': [
+			{
+				text: "We all wear masks, and the times comes when we cannot remove them without removing our own skin.",
+				author: "Andre Berthiaume",
+				saidBy: "Prentiss",
+			},
+			{
+				text: "Whatever you are, be a good one.",
+				author: "Abraham Lincoln",
+				saidBy: "Garcia",
+			},
+		],
+		'6×05 "Safe Haven"': [
+			{
+				text: "All humanity is one undivided and indivisible family. I cannot detach myself from the wickedest soul.",
+				author: "Mahatma Gandhi",
+				saidBy: "Morgan",
+			},
+			{
+				text: "But I have promises to keep, and miles to go before I sleep, and miles to go before I sleep.",
+				author: "Robert Frost",
+				saidBy: "Morgan",
+			},
+		],
+		'6×06 "Devil’s Night"': [
+			{
+				text: "If an injury has to be done to a man it should be so severe that his vengeance need not be feared.",
+				author: "Niccolo Machiavelli",
+				saidBy: "Hotch",
+			},
+			{
+				text: "Love feels no burden, thinks nothing of its trouble, attempts what is above its strength, pleads no excuse of impossibility; for it thinks all things lawful for itself, and all things possible.",
+				author: "Thomas à Kempis",
+				saidBy: "Hotch",
+			},
+		],
+		'6×07 "Middle Man"': [
+			{
+				text: "Without heroes, we are all plain people and don’t know how far we can go.",
+				author: "Bernard Malamud",
+				saidBy: "Hotch",
+			},
+			{
+				text: "The herd seek out the great, not for their sake but for their influence; and the great welcome them out of vanity or need.",
+				author: "Napoleon Bonaparte",
+				saidBy: "Hotch",
+			},
+		],
+		'6×08 "Reflection of Desire"': [
+			{
+				text: "Fame will go by and, so long, I’ve had you, fame. If it goes by, I’ve always known it was fickle. So at least it’s something I experience, but that’s not where I live.",
+				author: "Marilyn Monroe",
+				saidBy: "Garcia",
+			},
+			{
+				text: "I believe humanity was born from conflict. Maybe that’s why in all of us lives a dark side. Some of us embrace it. Some have no choice. The rest of us fight it. In the end, it’s as natural as the air we breathe. At some point, we’re forced to face the truth. Ourselves.",
+				author: "Penelope Garcia (Garcia’s own words)",
+				saidBy: "Garcia",
+			},
+		],
+		'6×09 "Into the Woods"': [
+			{
+				text: "I am invisible, understand, simply because people refuse to see me.",
+				author: "Ralph Ellison",
+				saidBy: "Morgan",
+			},
+			{
+				text: "Evil endures a moment’s flush, and then leaves but a burnt out shell.",
+				author: "Elise Cabot",
+				saidBy: "Hotch",
+			},
+		],
+		'6×10 "What Happens at Home"': [
+			{
+				text: "When we were children, we used to think that when we grew up we would no longer be vulnerable. But to grow up is to accept vulnerability… to be alive is to be vulnerable.",
+				author: "Madeleine L’Engle",
+				saidBy: "Hotch",
+			},
+			{
+				text: "Children begin by loving their parents; as they grow older they judge them; sometimes they forgive them.",
+				author: "Oscar Wilde",
+				saidBy: "Rossi",
+			},
+		],
+		'6×11 "25 to Life"': [
+			{
+				text: "There is no such thing as part freedom.",
+				author: "Nelson Mandela",
+				saidBy: "Morgan",
+			},
+			{
+				text: "All truths are easy to understand once they are discovered. The point is to discover them.",
+				author: "Galileo",
+				saidBy: "Morgan",
+			},
+		],
+		'6×12 "Corazón"': [
+			{
+				text: "No man chooses evil because it is evil; he only mistakes it for happiness, the good he seeks.",
+				author: "Mary Wollstonecraft Shelley",
+				saidBy: "Reid",
+			},
+			{
+				text: "The best and most beautiful things in life cannot be seen or even touched. They must be felt with the heart.",
+				author: "Helen Keller",
+				saidBy: "Reid",
+			},
+		],
+		'6×13 "The Thirteenth Step"': [
+			{
+				text: "What really raises one’s indignation against suffering is not suffering intrinsically, but the senselessness of suffering.",
+				author: "Friedrich Nietzsche",
+				saidBy: "Prentiss",
+			},
+			{
+				text: "What happened in the past that was painful has a great deal to do with what we are today.",
+				author: "William Glasser",
+				saidBy: "Prentiss",
+			},
+		],
+		'6×14 "Sense Memory"': [
+			{
+				text: "Hunting is not a sport. In a sport, both sides should know they are in the game.",
+				author: "Paul Rodriguez",
+				saidBy: "Morgan",
+			},
+			{
+				text: "Nothing revives the past so completely as a smell that was once associated with it.",
+				author: "Vladimir Nabokov",
+				saidBy: "Prentiss",
+			},
+		],
+		'6×15 "Today I Do"': [
+			{
+				text: "There’s no chance, no destiny, no fate, that can circumvent or hinder or control the firm resolve of a determined soul.",
+				author: "Ella Wheeler Wilcox",
+				saidBy: "Prentiss",
+			},
+			{
+				text: "It’s hard to fight an enemy who has outposts in your head.",
+				author: "Sally Kempton",
+				saidBy: "Rossi",
+			},
+		],
+		'6×16 "Coda"': [
+			{
+				text: "Tomorrow, you promise yourself, will be different, but tomorrow is too often a repetition of today.",
+				author: "James T. McCay",
+				saidBy: "Reid",
+			},
+		],
+		'6×17 "Valhalla"': [
+			{
+				text: "When I let go of what I am, I become what I might be.",
+				author: "Lao Tzu",
+				saidBy: "Prentiss",
+			},
+			{
+				text: "Confession is always weakness. The grave soul keeps its own secrets, and takes its own punishment in silence.",
+				author: "Dorothea Dix",
+				saidBy: "Prentiss",
+			},
+		],
+		'6×18 "Lauren"': [
+			{
+				text: "People will believe a big lie sooner than a little one, and if you repeat it frequently enough, people will sooner or later believe it.",
+				author: "Walter Langer",
+				saidBy: "JJ",
+			},
+			{
+				text: "The secret to getting away with lying is believing with all your heart. That goes for lying to yourself, even moreso than lying to another.",
+				author: "Elizabeth Bear",
+				saidBy: "Prentiss",
+			},
+		],
+		'6×19 "With Friends Like These…"': [
+			{
+				text: "The old faiths light their candles all about, but burly truth comes by and puts them out.",
+				author: "Lizette Reese",
+				saidBy: "Reid",
+			},
+			{
+				text: "It is not his enemy or foe that lures him to evil ways.",
+				author: "Siddhartha Buddha",
+				saidBy: "Morgan",
+			},
+		],
+		'6×20 "Hanley Waters"': [
+			{
+				text: "Man, when he does not grieve, hardly exists.",
+				author: "Antonio Porchia",
+				saidBy: "Morgan",
+			},
+		],
+		'6×21 "The Stranger"': [
+			{
+				text: "Sometimes human places create inhuman monsters.",
+				author: "Stephen King",
+				saidBy: "Hotch",
+			},
+		],
+		'6×22 "Out of the Light"': [
+			{
+				text: "Of this alone, even God is deprived, the power of making things that are past never to have been.",
+				author: "Agathon",
+				saidBy: "Rossi",
+			},
+			{
+				text: "Bring the past only if you’re going to build from it.",
+				author: "Doménico Cieri Estrada",
+				saidBy: "Hotch",
+			},
+		],
+		'6×23 "Big Sea"': [
+			{
+				text: "The sea has never been friendly to man. At most, it has been the accomplice of human restlessness.",
+				author: "Joseph Conrad",
+				saidBy: "Rossi",
+			},
+			{
+				text: "We are tied to the ocean. And when we go back to the sea, whether it is to sail or to watch, we are going back from whence we came.",
+				author: "John F. Kennedy",
+				saidBy: "Morgan",
+			},
+		],
+		'6×24 "Supply & Demand"': [
+			{
+				text: "And yet to every bad there’s a worse.",
+				author: "Thomas Hardy",
+				saidBy: "Hotch",
+			},
+			{
+				text: "What lies in our power to do, lies in our power not to do.",
+				author: "Aristotle",
+				saidBy: "Rossi",
+			},
+		],
+	},
+	"Season 7": {
+		'7×01 "It Takes a Village"': [
+			{
+				text: "The past cannot be cured.",
+				author: "Queen Elizabeth I",
+				saidBy: "JJ",
+			},
+			{
+				text: "I do solemnly swear that I will support and defend the Constitution of the United States against all enemies, foreign and domestic; that I will bear true faith and allegiance to the same; that I take this obligation freely, without any mental reservation or purpose of evasion; and that I will well and faithfully discharge the duties of the office on which I am about to enter. So help me God.",
+				author: "FBI Oath of Office",
+				saidBy: "Prentiss",
+			},
+		],
+		'7×02 "Proof"': [
+			{
+				text: "If it is a miracle, any sort of evidence will answer. But if it is a fact, proof is necessary.",
+				author: "Mark Twain",
+				saidBy: "Reid",
+			},
+			{
+				text: "Nothing inspires forgiveness quite like revenge.",
+				author: "Scott Adams",
+				saidBy: "Rossi",
+			},
+		],
+		'7×03 "Dorado Falls"': [
+			{
+				text: "Men are not prisoners of fate, but only prisoners of their own minds.",
+				author: "Franklin Delano Roosevelt",
+				saidBy: "Reid",
+			},
+			{
+				text: "We’re born alone, we live alone, we die alone. Only through our love and friendship can we create the illusion for the moment that we’re not alone.",
+				author: "Orson Welles",
+				saidBy: "Rossi",
+			},
+		],
+		'7×04 "Painless"': [
+			{
+				text: "You may leave school, but it never leaves you.",
+				author: "Andy Partridge",
+				saidBy: "Reid",
+			},
+			{
+				text: "Pain is the breaking of the shell that encloses your understanding.",
+				author: "Kahlil Gibran",
+				saidBy: "Hotch",
+			},
+		],
+		'7×05 "From Childhood’s Hour"': [
+			{
+				text: "From childhood’s hour I have not been As others were; I have not seen As others saw.",
+				author: "Edgar Allan Poe",
+				saidBy: "Reid",
+			},
+			{
+				text: "All things truly wicked start from an innocence.",
+				author: "Ernest Hemingway",
+				saidBy: "Rossi",
+			},
+		],
+		'7×06 "Epilogue"': [
+			{
+				text: "To die is poignantly bitter, but the idea of having to die without having lived is unbearable.",
+				author: "Erich Fromm",
+				saidBy: "Rossi",
+			},
+			{
+				text: "The timing of death, like the ending of a story, gives a changed meaning to what preceded it.",
+				author: "Mary Catherine Bateson",
+				saidBy: "Rossi",
+			},
+		],
+		'7×07 "There’s No Place Like Home"': [
+			{
+				text: "For the man sound in body and serene of mind there is no such thing as bad weather, every sky has its beauty, and storms which whip the blood do but make it pulse more vigorously.",
+				author: "George Gissing",
+				saidBy: "Hotch",
+			},
+			{
+				text: "Adversity is like a strong wind. I don’t mean just that it holds us back from places we might otherwise go. It also tears away from us all but the things that cannot be torn, so that afterward we see ourselves as we really are, and not merely as we might like to be.",
+				author: "Arthur Golden",
+				saidBy: "JJ",
+			},
+		],
+		'7×08 "Hope"': [
+			{
+				text: "Hope is faith holding out its hand in the dark.",
+				author: "George Iles",
+				saidBy: "Garcia",
+			},
+			{
+				text: "We are each on our own journey. Each of us is on our very own adventure; encountering all kinds of challenges, and the choices we make on that adventure will shape us as we go; these choices will stretch us, test us and push us to our limit; and our adventure will make us stronger then we ever know we could be.",
+				author: "LuLu (Credited with “Thank you, LuLu!”)",
+				saidBy: "Garcia",
+			},
+			{
+				text: "Find a place inside where there’s joy, and the joy will burn out the pain.",
+				author: "Joseph Campbell (Garcia calls him her favorite author)",
+				saidBy: "Garcia",
+			},
+		],
+		'7×09 "Self-Fulfilling Prophecy"': [
+			{
+				text: "Things do not change. We change.",
+				author: "Henry David Thoreau",
+				saidBy: "Morgan",
+			},
+			{
+				text: "Beware, so long as you live, of judging men by their outward appearance.",
+				author: "Jean de la Fontaine",
+				saidBy: "Morgan",
+			},
+		],
+		'7×10 "The Bittersweet Science"': [
+			{
+				text: "Everybody wants to go to heaven, but nobody wants to die.",
+				author: "Joe Louis",
+				saidBy: "Hotch",
+			},
+			{
+				text: "Some of us think holding on makes us strong; but sometimes it is letting go.",
+				author: "Hermann Hesse",
+				saidBy: "Hotch",
+			},
+		],
+		'7×11 "True Genius"': [
+			{
+				text: "Three can keep a secret if two of them are dead.",
+				author: "Benjamin Franklin",
+				saidBy: "Morgan",
+			},
+			{
+				text: "There is no greater sorrow than to recall happiness in times of misery.",
+				author: "Dante Alighieri",
+				saidBy: "Reid",
+			},
+		],
+		'7×12 "Unknown Subject"': [
+			{
+				text: "We do not suffer from the shock of our trauma, but we make out of it just what suits our purposes.",
+				author: "Alfred Adler",
+				saidBy: "Hotch",
+			},
+			{
+				text: "All the art of living lies in a fine mingling of letting go and holding on.",
+				author: "Henry Ellis",
+				saidBy: "Prentiss",
+			},
+		],
+		'7×13 "Snake Eyes"': [
+			{
+				text: "At the gambling table, there are no fathers or sons.",
+				author: "Chinese proverb",
+				saidBy: "Hotch",
+			},
+			{
+				text: "A gambler with a system must be, to a greater or lesser extent, insane.",
+				author: "George Augustus Sala",
+				saidBy: "Rossi",
+			},
+		],
+		'7×14 "Closing Time"': [
+			{
+				text: "For trust not him that hath once broken faith.",
+				author: "William Shakespeare",
+				saidBy: "Hotch",
+			},
+			{
+				text: "You may be deceived if you trust too much, but you will live in torment if you do not trust enough.",
+				author: "Frank Crane",
+				saidBy: "Hotch",
+			},
+		],
+		'7×15 "A Thin Line"': [
+			{
+				text: "Equality may perhaps be a right – but no power on earth can ever turn it into a fact.",
+				author: "Honore de Balzac",
+				saidBy: "Morgan",
+			},
+			{
+				text: "I’m for truth, no matter who tells it. I’m for justice, no matter who it’s for – or against.",
+				author: "Malcolm X",
+				saidBy: "Prentiss",
+			},
+		],
+		'7×16 "A Family Affair"': [
+			{
+				text: "Where there is anger, there is always pain underneath.",
+				author: "Eckhart Tolle",
+				saidBy: "Morgan",
+			},
+			{
+				text: "Live so that when your children think of fairness and integrity, they think of you.",
+				author: "H. Jackson Brown, Jr.",
+				saidBy: "JJ",
+			},
+		],
+		'7×17 "I Love You, Tommy Brown"': [
+			{
+				text: "Love is giving someone the ability to destroy you, but trusting them not to.",
+				author: "Unknown",
+				saidBy: "Morgan",
+			},
+			{
+				text: "For every good reason there is to lie, there is a better reason to tell the truth.",
+				author: "Bo Bennett",
+				saidBy: "Morgan",
 			},
 		],
 	},

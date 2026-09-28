@@ -90,8 +90,8 @@ const CHARACTER_BY_ID = new Map(CHARACTERS.map((c) => [c.id, c]));
 
 if (__DEV__) {
 	const episodes = SEASONS.reduce((n, s) => n + s.episodes.length, 0);
-	if (QUOTES.length !== 162 || episodes !== 89 || SEASONS.length !== 4) {
-		console.warn(`[data] Expected 162 quotes / 89 episodes / 4 seasons, got ${QUOTES.length} / ${episodes} / ${SEASONS.length}`);
+	if (QUOTES.length !== 281 || episodes !== 153 || SEASONS.length !== 7) {
+		console.warn(`[data] Expected 281 quotes / 153 episodes / 7 seasons, got ${QUOTES.length} / ${episodes} / ${SEASONS.length}`);
 	}
 	if (QUOTE_BY_ID.size !== QUOTES.length) console.warn("[data] Duplicate quote IDs — two quotes share the same text in one episode.");
 }

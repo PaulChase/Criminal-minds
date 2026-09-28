@@ -48,7 +48,7 @@ export function CharacterFilterSheet({ visible, selected, onApply, onClose }: Ch
 								onPress={() => toggle(c.id)}
 								accessibilityRole="checkbox"
 								accessibilityState={{ checked: active }}
-								accessibilityLabel={`${c.fullName}, ${c.quoteCount} quotes`}
+								accessibilityLabel={`${c.fullName}, ${c.quoteCount} ${c.quoteCount === 1 ? "quote" : "quotes"}`}
 								className={cn(
 									"flex-row items-center gap-2 rounded-full border py-1.5 pl-1.5 pr-3",
 									active ? "border-primary bg-primary/20" : "border-border bg-surface-2"
