@@ -33,3 +33,10 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# generated native projects (managed workflow / CNG)
+/android
+/ios
+
+# originals replaced by `npm run images`
+.image-originals/
