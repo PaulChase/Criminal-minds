@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ToastHost } from "@/components/toast/ToastHost";
 import { useFavorites } from "@/features/favorites/favoritesStore";
+import { useOtaUpdates } from "@/features/updates/useOtaUpdates";
 import { RootNavigator } from "@/navigation/RootNavigator";
 import { colors } from "@/theme/colors";
 import { fontAssets } from "@/theme/fonts";
@@ -29,6 +30,7 @@ export default function App() {
 	const [fontsLoaded, fontError] = useFonts(fontAssets);
 	const favoritesHydrated = useFavoritesHydrated();
 	const ready = (fontsLoaded || fontError !== null) && favoritesHydrated;
+	useOtaUpdates();
 
 	useEffect(() => {
 		if (ready) SplashScreen.hideAsync();
