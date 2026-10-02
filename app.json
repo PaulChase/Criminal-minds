@@ -4,7 +4,7 @@
     "slug": "CriminalMinds",
     "version": "1.2.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon-v2.png",
     "userInterfaceStyle": "dark",
     "backgroundColor": "#0d0d0d",
     "ios": {
@@ -15,7 +15,7 @@
       "package": "com.paulstack.criminal_minds",
       "versionCode": 3,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/icon-v2.png",
         "backgroundColor": "#000000"
       },
       "blockedPermissions": [
@@ -41,11 +41,14 @@
         "android.permission.READ_MEDIA_IMAGES"
       ]
     },
+    "web": {
+      "favicon": "./assets/icon-v2.png"
+    },
     "plugins": [
       [
         "expo-splash-screen",
         {
-          "image": "./assets/splash.png",
+          "image": "./assets/icon-v2.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#0d0d0d"
